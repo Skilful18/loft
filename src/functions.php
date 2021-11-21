@@ -29,7 +29,7 @@ function task2 (... $args): string
 
 function task3 (int $one_number, int $two_number)
 {
-    echo '<table border="4">';
+    echo '<table border="4" >';
     for($i = 1; $i <= $one_number; $i++){
         echo '<tr><td>' . $i . '</td>';
         for($x = 2; $x <= $two_number; $x++){
