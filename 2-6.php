@@ -2,7 +2,7 @@
 
 // 1. Создайте файл test.txt средствами PHP. Поместите в него текст - “Hello again!”
 
-$file = fopen('test.txt', "r");
+$file = fopen('test.txt', "w");
 file_put_contents("test.txt", "Hello again!");
 
 // 2. Напишите функцию, которая будет принимать имя файла, открывать файл и выводить содержимое на экран.
@@ -14,6 +14,6 @@ function funcOpen($file)
         echo $str;
     }
 }
-
+fclose($file);
 echo funcOpen($file);
 
