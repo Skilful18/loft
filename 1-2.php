@@ -1,9 +1,9 @@
 <?php
 
-CONST PICTURE = 80;
-CONST FELT_TIP = 23;
-CONST PENCIL = 40;
+const PICTURE = 80;
+const FELT_TIP = 23;
+const PENCIL = 40;
 
-CONST PAINT = (PICTURE - FELT_TIP) - PENCIL;
+$paint = PICTURE - FELT_TIP - PENCIL;
 
-echo PAINT;
+echo $paint;

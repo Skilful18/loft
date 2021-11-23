@@ -20,3 +20,5 @@ function open($fp)
 echo open($fp);
 
 fclose($fp);
+
+
