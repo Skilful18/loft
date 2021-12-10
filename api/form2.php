@@ -21,17 +21,19 @@ foreach ($_POST as $field => $value) {
 $data = ['address' => $address];
 
 $user = $burger->getUserByEmail($email);
+$orderId = 0;
 
 if($user) {
     $userId = $user['id'];
-    $burger->incOrders($user['id']);
-    $orderNumber = $user['order_count'] + 1;
+    $burger->incOrders($userId);
+    $order = $burger->getOrderById($userId);
+    $orderId = $order['orders_count'] + 1;
 } else {
-    $orderNumber = 1;
+    $orderId = 1;
     $userId = $burger->createUser($email, $name);
+    $order = $burger->getOrderById($userId);
 }
-
-$orderId = $burger->addOrder($userId, $data);
+$orderNumber = $burger->addOrder($userId, $data);
 
 //$array = [
 //    'user_id' => $userId,
@@ -41,8 +43,8 @@ $orderId = $burger->addOrder($userId, $data);
 //];
 
 echo "Спасибо, ваш заказ будет доставлен по адресу: $address . '<br>'
-        Номер вашего заказа: $orderId . '<br>'
-        Это ваш $orderNumber-й заказ!";
+        Номер вашего заказа: $orderNumber . '<br>'
+        Это ваш $orderId-й заказ!";
 
 //header('Content-type: application/json');
 //echo json_encode($array);

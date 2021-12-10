@@ -62,6 +62,7 @@ class Db
 
     public function fetchOne(string $query, $_method, array $params = [])
     {
+
         $t = microtime(true);
         $prepared = $this->getConnections()->prepare($query);
 
@@ -85,6 +86,7 @@ class Db
 
     public function exec(string $query, $_method, array $params = [])
     {
+
         $t = microtime(true);
         $pdo = $this->getConnections();
         $prepared = $pdo->prepare($query);
@@ -96,6 +98,7 @@ class Db
             trigger_error("{$errorInfo[0]}#{$errorInfo[1]}: " . $errorInfo[2]);
             return -1;
         }
+
         $affectedRows = $prepared->rowCount();
 
         $this->log[] = [$query, microtime(1) - $t, $_method, $affectedRows];
